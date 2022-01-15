@@ -1,40 +1,41 @@
-// Libraries
-const path = require("path");
-const Commando = require("discord.js-commando");
+// Librarie
+const Discord = require("discord.js");
+// New client with Default Discord
+const client = new Discord.Client();
 
-// My files
-const config = require("./config.json");
-const activity = require("./assets/json/status.json");
+// Files
+const activity = require("./assets/json/status");
+const loadCommands = require("./commands/load-commands");
 const loadFeatures = require("./features/load-features");
-
-// New client with Commando
-const client = new Commando.CommandoClient({
-    owner: [config.owner, config.devs],
-    commandPrefix: config.prefix,
-});
-
-// Commmand files
-client.registry
-    .registerGroups([
-        ["games", "fun games"],
-        ["help", "help member"],
-        ["moderation", "owners commands"],
-        ["member", "members can be use a commands"],
-    ])
-    .registerCommandsIn(path.join(__dirname, "commands"));
+// Shortcut Command
+loadCommands(client);
 loadFeatures(client);
 
-// Start Bot
+// Start Client (Start Bot)
 client.on("ready", async () => {
-    console.log(client.user.tag, activity.startClient);
+  console.log(
+    `-----------------------------\n           Ready!\n${client.user.tag} | ${client.user.id}\n-----------------------------`
+  );
 
-    // State
-    setInterval(function () {
-        client.user.setActivity(
-            activity.status[Math.floor(Math.random() * activity.status.length)],
-            { url: "https://twitch.tv/gboy6666", type: "STREAMING" }
-        );
-    }, Math.floor(30 * 1000));
+  // State
+  /*
+  setInterval(function () {
+    client.user
+      .setActivity(
+        activity.status[Math.floor(Math.random() * activity.status.length)],
+        { url: "https://twitch.tv/gboy6666", type: "STREAMING" }
+      )
+      .catch(console.error);
+  }, Math.floor(30 * 1000));
+  */
+
+  // State STOP
+  client.user
+    .setPresence({
+      activity: { name: "صار عندي نظام جديد وسريع أحسن من أول" },
+      status: "online",
+    })
+    .catch(console.error);
 });
 
 // Token
