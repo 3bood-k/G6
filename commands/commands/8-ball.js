@@ -5,10 +5,9 @@ module.exports = {
   description: "8ball إطرح سؤالك لـ",
   expectedArgs: ["[السؤال]"],
   example: ["هل الكوكب دائري"],
-  cooldown: 30,
+  cooldown: 5,
   minArgs: 1,
-  callback: (message, arguments, client, MessageEmbed) => {
-    if (message.channel.type === "dm") return;
+  callback: (message, arguments, client) => {
     const question = message.content.split(" ").slice(1);
 
     if (parseInt(question[0]) > -10000000000) {
@@ -24,10 +23,10 @@ module.exports = {
         .then((msg) => msg.delete({ timeout: 1500 }));
     }
 
-    message.channel.send(`
-            ${question.join(" ")}\n🎱 ${
-      ball.answers[Math.floor(Math.random() * ball.answers.length)]
-    } 🎱
-        `);
+    message.channel.send(
+      `${question.join(" ")}\n🎱 ${
+        ball.answers[Math.floor(Math.random() * ball.answers.length)]
+      } 🎱`
+    );
   },
 };

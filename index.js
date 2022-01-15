@@ -1,41 +1,33 @@
 // Librarie
 const Discord = require("discord.js");
-// New client with Default Discord
+// New "client" with Default Discord Librarie
 const client = new Discord.Client();
 
-// Files
-const activity = require("./assets/json/status");
+// Files //hi
+require("dotenv").config();
+const status = require("./assets/json/status");
 const loadCommands = require("./commands/load-commands");
 const loadFeatures = require("./features/load-features");
-// Shortcut Command
+// Shortcut Commands
 loadCommands(client);
 loadFeatures(client);
 
 // Start Client (Start Bot)
 client.on("ready", async () => {
-  console.log(
-    `-----------------------------\n           Ready!\n${client.user.tag} | ${client.user.id}\n-----------------------------`
-  );
+  console.log("[--------------------- R E A D Y ---------------------]");
 
-  // State
-  /*
+  // Status BOT
   setInterval(function () {
     client.user
       .setActivity(
-        activity.status[Math.floor(Math.random() * activity.status.length)],
-        { url: "https://twitch.tv/gboy6666", type: "STREAMING" }
+        status.cases[Math.floor(Math.random() * status.cases.length)],
+        {
+          url: `https://twitch.tv/${status.twitchChannel}`,
+          type: "STREAMING",
+        }
       )
       .catch(console.error);
   }, Math.floor(30 * 1000));
-  */
-
-  // State STOP
-  client.user
-    .setPresence({
-      activity: { name: "صار عندي نظام جديد وسريع أحسن من أول" },
-      status: "online",
-    })
-    .catch(console.error);
 });
 
 // Token

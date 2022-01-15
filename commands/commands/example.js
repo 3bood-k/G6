@@ -1,7 +1,9 @@
+const Emote = require("../../assets/json/emote.json")
+
 module.exports = {
   commands: ["add", "addition"],
   description: "يجمع بين رقمين",
-  example: `1 5`,
+  example: "1 5",
   cooldown: 10,
   expectedArgs: "<الرقم الثاني> <الرقم الأول>",
   permissionError: 'تحتاج إلى أن تكون "ADMINISTRATOR" لكي يمكنك استخدام الأمر',

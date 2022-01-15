@@ -1,5 +1,3 @@
-const { prefix } = require("../config.json");
-
 const validatePermissions = (permissions) => {
   const validPermissions = [
     "CREATE_INSTANT_INVITE",
@@ -41,7 +39,6 @@ const validatePermissions = (permissions) => {
     }
   }
 };
-
 let recentlyRan = [];
 
 module.exports = (client, commandOptions) => {
@@ -50,7 +47,6 @@ module.exports = (client, commandOptions) => {
     example = "",
     description = "",
     expectedArgs = "",
-    // guildOnly = true,
     permissionError = "ليست لديك أي صلاحيات لتشغيل هاذا الأمر",
     minArgs = 0,
     maxArgs = null,
@@ -64,8 +60,6 @@ module.exports = (client, commandOptions) => {
     commands = [commands];
   }
 
-  console.log(`Registering command "${commands[0]}"`);
-
   if (permissions.length) {
     if (typeof permissions === "string") {
       permissions = [permissions];
@@ -75,12 +69,13 @@ module.exports = (client, commandOptions) => {
   }
 
   client.on("message", (message) => {
+    const { prefix } = require("../config.json");
     const { MessageEmbed } = require("discord.js");
-
     const { member, content, guild } = message;
 
     for (const alias of commands) {
       const command = `${prefix}${alias.toLowerCase()}`;
+      // if the command in DM
       if (message.channel.type === "dm") return;
 
       if (
@@ -88,15 +83,12 @@ module.exports = (client, commandOptions) => {
         content.toLowerCase() === command
       ) {
         for (const permission of permissions) {
-          // if (alias.guildOnly || message.channel.type === "dm") return;
           if (!member.hasPermission(permission)) {
-            message.reply(permissionError);
-            return;
+            return message.reply(permissionError);
           }
         }
 
         for (const requiredRole of requiredRoles) {
-          // if (alias.guildOnly || message.channel.type === "dm") return;
           const role = guild.roles.cache.find(
             (role) => role.name === requiredRole
           );
@@ -111,9 +103,9 @@ module.exports = (client, commandOptions) => {
 
         let cooldownString = `${guild.id}-${member.id}-${commands[0]}`;
         if (cooldown > 0 && recentlyRan.includes(cooldownString)) {
-          message.channel.send(
-            `${message.author}, لا يمكنك إستخدام هاذا الأمر الآن، الرجاء الإنتظار..`
-          );
+          message.reply(
+            "لا يمكنك إستخدام هاذا الأمر الآن، الرجاء الإنتظار.."
+          ).then((msg) => msg.delete({ timeout: 2500 }));
           return;
         }
 
@@ -138,25 +130,21 @@ module.exports = (client, commandOptions) => {
               value: `${prefix}${alias} ${example}`,
             });
 
-          message.channel.send(helpEmbed);
-          return;
+          return message.channel.send(helpEmbed);
         }
-
+        
         if (cooldown > 0) {
           recentlyRan.push(cooldownString);
-
+          
           setTimeout(() => {
             recentlyRan = recentlyRan.filter((string) => {
               return string !== cooldownString;
             });
           }, 1000 * cooldown);
         }
-        // if (alias.guildOnly === true || message.channel.type === "dm") return;
-
+                
         // Handle the custom command code
-        callback(message, arguments, arguments.join(" "), client, MessageEmbed);
-
-        return;
+        return callback(message, arguments, arguments.join(" "), client, MessageEmbed);
       }
     }
   });

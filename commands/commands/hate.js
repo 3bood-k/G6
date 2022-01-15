@@ -2,8 +2,8 @@ const LoveSad = require("../../assets/json/love.json");
 const Emote = require("../../assets/json/emote.json");
 
 module.exports = {
-  commands: ["love", "l"],
-  description: "معرفة كم نسبة حبك لشخص معين",
+  commands: ["hate", "h"],
+  description: "معرفة كم نسبة كرهك لشخص معين",
   expectedArgs: "[@member]",
   example: "@G6",
   cooldown: 10,
@@ -21,27 +21,27 @@ module.exports = {
     const random = Math.floor(Math.random() * 100);
     message.channel.startTyping();
     message.reply(
-      `نسبة حبك لـ ${member} هي ${random}% ${
-        random >= 30 ? "" : `${Emote.GBOY6666.notLikeThis}`
-      }${random <= 30 ? "" : `${Emote.GBOY6666.love}`}`,
+      `نسبة كرهك لـ ${member} هي ${random}% ${
+        random >= 30 ? "" : `${Emote.GBOY6666.love}`
+      }${random <= 30 ? "" : `${Emote.GBOY6666.notLikeThis}`}`,
       {
         files: [
           {
             attachment: `${
               random <= 30
                 ? ""
-                : LoveSad.gif.love[
-                    Math.floor(Math.random() * LoveSad.gif.love.length)
+                : LoveSad.gif.sad[
+                    Math.floor(Math.random() * LoveSad.gif.sad.length)
                   ]
             }${
               random >= 30
                 ? ""
-                : LoveSad.gif.sad[
-                    Math.floor(Math.random() * LoveSad.gif.sad.length)
+                : LoveSad.gif.love[
+                    Math.floor(Math.random() * LoveSad.gif.love.length)
                   ]
             }`,
-            name: `${random <= 30 ? "" : "love.gif"}${
-              random >= 30 ? "" : "sad.gif"
+            name: `${random <= 30 ? "" : "sad.gif"}${
+              random >= 30 ? "" : "love.gif"
             }`,
           },
         ],
