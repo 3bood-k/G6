@@ -8,8 +8,7 @@ const emotes = [
   Emote.GBOY6666.kiss,
   "<:PeepoFlower:832894098138202182>",
   Emote.GBOY6666.hyper,
-  "<:PauseChamp:829992087226548265>",
-  "<:peepoComfyBlush:829776371471089705>",
+  "<:PagChomp:837062614763831326>",
   Emote.GBOY6666.shy,
   "<:WICKED:832291417690472488>",
 ];
