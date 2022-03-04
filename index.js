@@ -1,39 +1,34 @@
-// Libraries
-const DiscordJS = require("discord.js");
-const WOKCommands = require("wokcommands");
-const path = require("path");
-require("dotenv/config");
+// Librarie
+const Discord = require("discord.js");
+// New "client" with Default Discord Librarie
+const client = new Discord.Client();
 
-const status = require("./assets/json/status.json");
-const { Intents } = DiscordJS;
-const client = new DiscordJS.Client({
-  intents: [
-    Intents.FLAGS.GUILDS,
-    Intents.FLAGS.GUILD_MESSAGES,
-    Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-  ],
-});
+// Files //hi
+require("dotenv").config();
+const status = require("./assets/json/status");
+const loadCommands = require("./commands/load-commands");
+const loadFeatures = require("./features/load-features");
+// Shortcut Commands
+loadCommands(client);
+loadFeatures(client);
 
+// Start Client (Start Bot)
 client.on("ready", async () => {
-  new WOKCommands(client, {
-    // The name of the local folder for Command files
-    commandsDir: path.join(__dirname, "commands"),
-    // The name of the local folder for Feature files
-    featuresDir: path.join(__dirname, "features"),
-    // The name of the local file for message text
-    messagesPath: path.join(__dirname, "./assets/json/messages.json"),
+  console.log("[--------------------- R E A D Y ---------------------]");
 
-    showWarns: false,
-    botOwners: ["342040918150610955"],
-    disabledDefaultCommands: [
-      "help",
-      "prefix",
-      "command",
-      "language",
-      "channelonly",
-      "requiredrole",
-    ],
-  }).setDefaultPrefix("?");
+  // Status BOT
+  setInterval(function () {
+    client.user
+      .setActivity(
+        status.cases[Math.floor(Math.random() * status.cases.length)],
+        {
+          url: `https://twitch.tv/${status.twitchChannel}`,
+          type: "STREAMING",
+        }
+      )
+      .catch(console.error);
+  }, Math.floor(30 * 1000));
 });
 
+// Token
 client.login(process.env.TOKEN);
