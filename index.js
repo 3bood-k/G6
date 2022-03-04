@@ -5,12 +5,7 @@ const client = new Discord.Client();
 
 // Files //hi
 require("dotenv").config();
-const status = require("./assets/json/status");
-const loadCommands = require("./commands/load-commands");
-const loadFeatures = require("./features/load-features");
-// Shortcut Commands
-loadCommands(client);
-loadFeatures(client);
+const status = require("./assets/json/status.json");
 
 // Start Client (Start Bot)
 client.on("ready", async () => {
