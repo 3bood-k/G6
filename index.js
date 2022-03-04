@@ -7,7 +7,6 @@ require("dotenv/config");
 const status = require("./assets/json/status.json");
 const { Intents } = DiscordJS;
 const client = new DiscordJS.Client({
-  partials: ["CHANNEL"],
   intents: [
     Intents.FLAGS.GUILDS,
     Intents.FLAGS.GUILD_MESSAGES,
