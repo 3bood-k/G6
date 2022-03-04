@@ -17,7 +17,18 @@ const client = new DiscordJS.Client({
   ],
 });
 
-client.on("ready", () => {
+client.on("ready", async () => {
+  // Status BOT
+  setInterval(function () {
+    client.user.setActivity(
+      status.cases[Math.floor(Math.random() * status.cases.length)],
+      {
+        url: `https://twitch.tv/${status.twitchChannel}`,
+        type: "STREAMING",
+      }
+    );
+  }, Math.floor(30 * 1000));
+
   new WOKCommands(client, {
     // The name of the local folder for Command files
     commandsDir: path.join(__dirname, "commands"),
@@ -37,17 +48,6 @@ client.on("ready", () => {
       "requiredrole",
     ],
   }).setDefaultPrefix("?");
-
-  // Status BOT
-  setInterval(function () {
-    client.user.setActivity(
-      status.cases[Math.floor(Math.random() * status.cases.length)],
-      {
-        url: `https://twitch.tv/${status.twitchChannel}`,
-        type: "STREAMING",
-      }
-    );
-  }, Math.floor(30 * 1000));
 });
 
 client.login(process.env.TOKEN);
