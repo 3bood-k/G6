@@ -29,7 +29,7 @@ module.exports = (client) => {
             },
           ],
         })
-        .then((msg) => setTimeout(() => msg.delete(), 60 * 1000));
+        .then((msg) => setTimeout(() => msg.delete(), 64 * 1000));
     }
   });
 };
