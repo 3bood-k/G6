@@ -9,8 +9,16 @@ module.exports = (client) => {
       message.content.toLowerCase().startsWith("g8ball")
     ) {
       message.delete();
+      message.channel.sendTyping();
       message.channel
         .send({
+          files: [
+            {
+              attachment:
+                "https://cdn.discordapp.com/attachments/798225999019245639/950458909301289040/ezgif-4-c818483684.gif",
+              name: "Tutorial_Slash_Command.gif",
+            },
+          ],
           embeds: [
             {
               description: `جميع أوامر ${client.user} صارت بـ \`/\`\n\nالحين رح بتكون جميع الاوامر سهله الاستخدام للجميع <:Gboy_Hyper:832793482153558016>`,
