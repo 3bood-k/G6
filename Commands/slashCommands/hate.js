@@ -22,7 +22,7 @@ module.exports = {
     const LoveSad = require("../../assets/json/love.json");
 
     await interaction.deferReply();
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
     interaction.editReply({
       content: `نسبة كرهك لـ ${member} هي ${random}% ${
         random >= 30 ? "" : `<:Gboy_Love:832793604446486548>`
