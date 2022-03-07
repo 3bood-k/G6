@@ -20,9 +20,9 @@ const client = new DiscordJS.Client({
 client.on("ready", async () => {
   new WOKCommands(client, {
     // The name of the local folder for Command files
-    commandsDir: path.join(__dirname, "commands"),
+    commandsDir: path.join(__dirname, "Commands"),
     // The name of the local folder for Feature files
-    featuresDir: path.join(__dirname, "features"),
+    featuresDir: path.join(__dirname, "Features"),
     // The name of the local file for message text
     messagesPath: path.join(__dirname, "./assets/json/messages.json"),
 
