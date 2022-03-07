@@ -7,13 +7,10 @@ require("dotenv/config");
 const status = require("./assets/json/status.json");
 const { Intents } = DiscordJS;
 const client = new DiscordJS.Client({
-  partials: ["CHANNEL"],
   intents: [
     Intents.FLAGS.GUILDS,
     Intents.FLAGS.GUILD_MESSAGES,
     Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-    Intents.FLAGS.DIRECT_MESSAGES,
-    Intents.FLAGS.DIRECT_MESSAGE_TYPING,
   ],
 });
 
@@ -37,17 +34,6 @@ client.on("ready", () => {
       "requiredrole",
     ],
   }).setDefaultPrefix("?");
-
-  // Status BOT
-  setInterval(function () {
-    client.user.setActivity(
-      status.cases[Math.floor(Math.random() * status.cases.length)],
-      {
-        url: `https://twitch.tv/${status.twitchChannel}`,
-        type: "STREAMING",
-      }
-    );
-  }, Math.floor(30 * 1000));
 });
 
 client.login(process.env.TOKEN);
