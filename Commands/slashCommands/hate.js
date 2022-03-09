@@ -12,7 +12,7 @@ module.exports = {
       name: "الشخص",
       description: "الشخص الي تبي تعرف عنه",
       required: true,
-      type: require("discord.js").Constants.ApplicationCommandOptionTypes.USER,
+      type: "USER",
     },
   ],
 
