@@ -11,6 +11,7 @@ module.exports = {
         content: " ",
         embeds: [
           {
+            title: "Pong!",
             description: `**msالوقت المستغرق: \`${
               Date.now() - message.createdTimestamp
             }\`\nms\`${Math.round(client.ws.ping)}\` :API ديسكورد**`,
