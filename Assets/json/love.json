@@ -1,0 +1,22 @@
+{
+  "gif": {
+    "love": [
+      "./Assets/images/love1.gif",
+      "./Assets/images/love2.gif",
+      "./Assets/images/love3.gif",
+      "./Assets/images/love4.gif",
+      "./Assets/images/love5.gif",
+      "./Assets/images/love6.gif",
+      "./Assets/images/love7.gif"
+    ],
+    "sad": [
+      "./Assets/images/sad1.gif",
+      "./Assets/images/sad2.gif",
+      "./Assets/images/sad3.gif",
+      "./Assets/images/sad4.gif",
+      "./Assets/images/sad5.gif",
+      "./Assets/images/sad6.gif",
+      "./Assets/images/sad7.gif"
+    ]
+  }
+}
