@@ -10,8 +10,7 @@ module.exports = {
       name: "السؤال",
       description: "G6 سؤال تأخذ فيه حكمت",
       required: true,
-      type: require("discord.js").Constants.ApplicationCommandOptionTypes
-        .STRING,
+      type: "STRING",
     },
   ],
 
