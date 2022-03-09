@@ -1,7 +1,7 @@
 module.exports = (client) => {
   client.on("messageCreate", (message) => {
     if (
-      message.channel.id === require("../Assets/json/channel.json").TwitchClips
+      message.channel.id === require("../assets/json/channel.json").TwitchClips
     ) {
       if (
         message.content.startsWith("https://www.twitch.tv/") ||

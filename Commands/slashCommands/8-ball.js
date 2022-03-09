@@ -15,7 +15,7 @@ module.exports = {
   ],
 
   callback: async ({ args, interaction }) => {
-    const answers = require("../../Assets/json/8-ball.json");
+    const answers = require("../../assets/json/8-ball.json");
     await interaction.deferReply();
     await new Promise((resolve) => setTimeout(resolve, 1000));
 

@@ -19,7 +19,7 @@ module.exports = {
   callback: async ({ guild, args, interaction }) => {
     const member = await guild.members.fetch(args.shift());
     const random = Math.floor(Math.random() * 100);
-    const LoveSad = require("../../Assets/json/love.json");
+    const LoveSad = require("../../assets/json/love.json");
 
     await interaction.deferReply();
     await new Promise((resolve) => setTimeout(resolve, 1500));

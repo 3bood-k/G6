@@ -4,7 +4,7 @@ const WOKCommands = require("wokcommands");
 const path = require("path");
 require("dotenv/config");
 
-const status = require("./Assets/json/status.json");
+const status = require("./assets/json/status.json");
 const { Intents } = DiscordJS;
 const client = new DiscordJS.Client({
   partials: ["CHANNEL"],
@@ -24,7 +24,7 @@ client.on("ready", async () => {
     // The name of the local folder for Feature files
     featuresDir: path.join(__dirname, "Features"),
     // The name of the local file for message text
-    messagesPath: path.join(__dirname, "./Assets/json/messages.json"),
+    messagesPath: path.join(__dirname, "./assets/json/messages.json"),
 
     showWarns: false,
     botOwners: ["342040918150610955"],

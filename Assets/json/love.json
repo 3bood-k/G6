@@ -1,22 +1,22 @@
 {
   "gif": {
     "love": [
-      "./Assets/image/love1.gif",
-      "./Assets/image/love2.gif",
-      "./Assets/image/love3.gif",
-      "./Assets/image/love4.gif",
-      "./Assets/image/love5.gif",
-      "./Assets/image/love6.gif",
-      "./Assets/image/love7.gif"
+      "./assets/image/love1.gif",
+      "./assets/image/love2.gif",
+      "./assets/image/love3.gif",
+      "./assets/image/love4.gif",
+      "./assets/image/love5.gif",
+      "./assets/image/love6.gif",
+      "./assets/image/love7.gif"
     ],
     "sad": [
-      "./Assets/image/sad1.gif",
-      "./Assets/image/sad2.gif",
-      "./Assets/image/sad3.gif",
-      "./Assets/image/sad4.gif",
-      "./Assets/image/sad5.gif",
-      "./Assets/image/sad6.gif",
-      "./Assets/image/sad7.gif"
+      "./assets/image/sad1.gif",
+      "./assets/image/sad2.gif",
+      "./assets/image/sad3.gif",
+      "./assets/image/sad4.gif",
+      "./assets/image/sad5.gif",
+      "./assets/image/sad6.gif",
+      "./assets/image/sad7.gif"
     ]
   }
 }

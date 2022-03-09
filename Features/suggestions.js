@@ -1,7 +1,7 @@
 module.exports = (client) => {
   client.on("messageCreate", (message) => {
     if (
-      message.channel.id == require("../Assets/json/channel.json").Suggestion
+      message.channel.id == require("../assets/json/channel.json").Suggestion
     ) {
       if (!message.member.user.bot) {
         message.delete();
