@@ -16,7 +16,7 @@ randomEmotes = [
 
 module.exports = (client) => {
   client.on("messageCreate", (message) => {
-    if (message.channel.id == require("../Assets/json/channel.json").Boost) {
+    if (message.channel.id == require("../Assets/json/channels.json").Boost) {
       message.react("<:Gboy_Love:832793604446486548>").then(() => {
         message.react(
           randomEmotes[Math.floor(Math.random() * randomEmotes.length)]

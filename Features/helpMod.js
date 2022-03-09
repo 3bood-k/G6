@@ -1,7 +1,7 @@
 module.exports = (client) => {
   client.on("messageCreate", (message) => {
     const channelMod = client.channels.cache.get(
-      require("../Assets/json/channel.json").MessageMod
+      require("../Assets/json/channels.json").MessageMod
     );
 
     if (message.channel.type == "DM" && !message.author.bot) {
