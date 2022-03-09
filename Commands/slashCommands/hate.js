@@ -18,32 +18,32 @@ module.exports = {
 
   callback: async ({ guild, args, interaction }) => {
     const member = await guild.members.fetch(args.shift());
-    const random = Math.floor(Math.random() * 100);
+    const randomNum = Math.floor(Math.random() * 100);
     const LoveSad = require("../../Assets/json/love.json");
 
     await interaction.deferReply();
     await new Promise((resolve) => setTimeout(resolve, 1500));
     interaction.editReply({
-      content: `نسبة كرهك لـ ${member} هي ${random}% ${
-        random >= 30 ? "" : `<:Gboy_Love:832793604446486548>`
-      }${random <= 30 ? "" : `<:Gboy_NotLikeThis:832793656762564689>`}`,
+      content: `نسبة كرهك لـ ${member} هي ${randomNum}% ${
+        randomNum >= 30 ? "" : `<:Gboy_Love:832793604446486548>`
+      }${randomNum <= 30 ? "" : `<:Gboy_NotLikeThis:832793656762564689>`}`,
       files: [
         {
           attachment: `${
-            random >= 30
+            randomNum >= 30
               ? ""
               : LoveSad.gif.love[
                   Math.floor(Math.random() * LoveSad.gif.love.length)
                 ]
           }${
-            random <= 30
+            randomNum <= 30
               ? ""
               : LoveSad.gif.sad[
                   Math.floor(Math.random() * LoveSad.gif.sad.length)
                 ]
           }`,
-          name: `${random >= 30 ? "" : "love.gif"}${
-            random <= 30 ? "" : "sad.gif"
+          name: `${randomNum >= 30 ? "" : "love.gif"}${
+            randomNum <= 30 ? "" : "sad.gif"
           }`,
         },
       ],
