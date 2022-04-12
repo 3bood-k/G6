@@ -21,7 +21,7 @@ module.exports = (client) => {
           ],
           embeds: [
             {
-              description: `جميع أوامر ${client.user} صارت بـ \`/\`\n\nالحين رح بتكون جميع الاوامر سهله الاستخدام للجميع <:Gboy_Hyper:832793482153558016>`,
+              description: `جميع أوامر ${client.user} صارت بـ \`/\`\n\nالحين رح بتكون جميع الاوامر سهلة الاستخدام للجميع <:Gboy_Hyper:832793482153558016>`,
               thumbnail: {
                 url: "https://cdn.discordapp.com/attachments/798225999019245639/937184117894836244/GboyPeek.png",
               },
