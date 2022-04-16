@@ -43,7 +43,7 @@ client.on("ready", async () => {
     client.user.setActivity(
       status.cases[Math.floor(Math.random() * status.cases.length)],
       {
-        url: `https://twitch.tv/${status.twitchChannel}`,
+        url: `https://twitch.tv/gboy6666`,
         type: "STREAMING",
       }
     );
