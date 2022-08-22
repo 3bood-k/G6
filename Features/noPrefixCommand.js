@@ -15,7 +15,7 @@ module.exports = (client) => {
           files: [
             {
               attachment:
-                "https://media.discordapp.net/attachments/798225999019245639/1011379266090446930/Tutorial_Slash_Command.gif",
+                "https://cdn.discordapp.com/attachments/798225999019245639/1011379266090446930/Tutorial_Slash_Command.gif",
               name: "Tutorial_Slash_Command.gif",
             },
           ],
